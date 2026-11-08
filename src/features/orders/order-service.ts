@@ -1,7 +1,12 @@
+import { MAX_QUANTITY_PER_ITEM } from "@/features/cart/cart-reducer";
 import { getProductById } from "@/features/catalog/catalog-service";
 import type { Product } from "@/features/catalog/types";
 import { placeOrderSchema, toFieldErrors } from "@/features/checkout/checkout-schema";
-import { calculateOrderTotals } from "@/features/checkout/pricing";
+import { calculateOrderTotals, calculateSubtotal } from "@/features/checkout/pricing";
+import { toCouponOrderError } from "@/features/coupons/coupon-errors";
+import { evaluateCoupon } from "@/features/coupons/coupon-rules";
+import { findCouponByCode } from "@/features/coupons/coupon-service";
+import type { Coupon } from "@/features/coupons/types";
 import { OrderError } from "./order-errors";
 import type { OrderRepository } from "./order-repository";
 import type { Order, OrderItem } from "./types";
@@ -9,6 +14,7 @@ import type { Order, OrderItem } from "./types";
 export interface OrderServiceDeps {
   repository: OrderRepository;
   findProduct?: (id: string) => Product | undefined;
+  findCoupon?: (code: string) => Coupon | undefined;
   now?: () => Date;
   generateId?: (date: Date) => string;
 }
@@ -32,6 +38,7 @@ function mergeItems(items: { productId: string; quantity: number }[]) {
 export function createOrderService({
   repository,
   findProduct = getProductById,
+  findCoupon = findCouponByCode,
   now = () => new Date(),
   generateId = generateOrderId,
 }: OrderServiceDeps) {
@@ -49,6 +56,7 @@ export function createOrderService({
      * - Validate dữ liệu bằng placeOrderSchema
      * - Lấy giá từ catalog (bỏ qua mọi giá client gửi lên)
      * - Kiểm tra tồn kho
+     * - Kiểm tra lại mã giảm giá và tự tính số tiền giảm (bỏ qua mọi số tiền client gửi lên)
      */
     async placeOrder(input: unknown): Promise<Order> {
       const parsed = placeOrderSchema.safeParse(input);
@@ -60,9 +68,18 @@ export function createOrderService({
         );
       }
 
-      const { customer, items, shippingMethod, paymentMethod } = parsed.data;
+      const { customer, items, shippingMethod, paymentMethod, couponCode } = parsed.data;
 
-      const orderItems: OrderItem[] = mergeItems(items).map(({ productId, quantity }) => {
+      const mergedItems = mergeItems(items);
+      // Sau khi gộp dòng trùng vẫn phải tuân giới hạn mỗi sản phẩm (FR-023) - không thể dùng
+      // dòng trùng để vượt giới hạn hay đẩy tạm tính lên mức tối thiểu của mã giảm giá.
+      if (mergedItems.some((item) => item.quantity > MAX_QUANTITY_PER_ITEM)) {
+        throw new OrderError("VALIDATION_ERROR", "Thông tin đơn hàng không hợp lệ", {
+          items: `Mỗi sản phẩm tối đa ${MAX_QUANTITY_PER_ITEM} sản phẩm`,
+        });
+      }
+
+      const orderItems: OrderItem[] = mergedItems.map(({ productId, quantity }) => {
         const product = findProduct(productId);
         if (!product) {
           throw new OrderError("PRODUCT_NOT_FOUND", `Không tìm thấy sản phẩm "${productId}"`);
@@ -86,7 +103,21 @@ export function createOrderService({
         };
       });
 
+      // Một thời điểm duy nhất (đồng hồ server) cho cả việc xét hạn mã và thời điểm tạo đơn
       const createdAt = now();
+
+      let discount = 0;
+      if (couponCode) {
+        const evaluation = evaluateCoupon(
+          findCoupon(couponCode),
+          calculateSubtotal(orderItems),
+          createdAt,
+        );
+        // Mã không hợp lệ: từ chối đơn, KHÔNG tự tạo đơn không giảm giá (FR-019)
+        if (evaluation.status === "invalid") throw toCouponOrderError(evaluation);
+        discount = evaluation.discount;
+      }
+
       const order: Order = {
         id: generateId(createdAt),
         status: "pending",
@@ -102,7 +133,8 @@ export function createOrderService({
         shippingMethod,
         paymentMethod,
         items: orderItems,
-        ...calculateOrderTotals(orderItems, shippingMethod),
+        ...(couponCode ? { couponCode } : {}),
+        ...calculateOrderTotals(orderItems, shippingMethod, discount),
       };
 
       await repository.save(order);

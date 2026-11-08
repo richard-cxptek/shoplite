@@ -39,6 +39,43 @@ test("khách hàng tìm sản phẩm, thêm vào giỏ và đặt hàng thành c
   await expect(page.getByTestId("order-row").filter({ hasText: orderId })).toBeVisible();
 });
 
+test("khách hàng dùng mã SHOPLITE10 khi thanh toán", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("link", { name: "Mua sắm ngay" }).click();
+  await page.getByLabel("Từ khóa tìm kiếm").fill("chuot khong day");
+  await page.getByRole("button", { name: "Tìm kiếm" }).click();
+
+  // Thêm 2 chuột SwiftClick: 2 x 450.000đ = 900.000đ
+  await page.getByRole("link", { name: "Chuột không dây SwiftClick" }).click();
+  const purchasePanel = page.getByTestId("purchase-panel");
+  await purchasePanel.getByRole("button", { name: "Tăng số lượng" }).click();
+  await purchasePanel.getByRole("button", { name: "Thêm vào giỏ" }).click();
+  await expect(page.getByTestId("cart-count")).toHaveText("2");
+
+  await page.getByRole("link", { name: /Giỏ hàng/ }).click();
+  await page.getByRole("link", { name: "Tiến hành thanh toán" }).click();
+
+  await page.getByLabel(/Họ và tên/).fill("Nguyễn Văn Mã");
+  await page.getByLabel(/Số điện thoại/).fill("0912345678");
+  await page.getByLabel(/Địa chỉ giao hàng/).fill("12 Nguyễn Huệ, Quận 1, TP.HCM");
+
+  // Áp dụng mã: giảm 10% = 90.000đ, miễn phí giao hàng → tổng 810.000đ
+  await page.getByLabel("Mã giảm giá").fill("shoplite10");
+  await page.getByRole("button", { name: "Áp dụng" }).click();
+  const discount = page.getByTestId("discount-amount");
+  await expect(discount).toContainText("SHOPLITE10");
+  await expect(discount).toContainText(/-90\.000/);
+  await expect(page.getByTestId("checkout-total")).toContainText(/810\.000/);
+
+  await page.getByRole("button", { name: "Đặt hàng" }).click();
+
+  // Trang chi tiết đơn hàng hiển thị mã và số tiền giảm đã lưu
+  await expect(page).toHaveURL(/\/orders\/SL-\d{8}-[0-9A-F]{6}\?placed=1/);
+  const orderDiscount = page.getByTestId("order-discount");
+  await expect(orderDiscount).toContainText("SHOPLITE10");
+  await expect(orderDiscount).toContainText(/-90\.000/);
+});
+
 test("lọc theo danh mục và sắp xếp theo giá", async ({ page }) => {
   await page.goto("/products");
   await page

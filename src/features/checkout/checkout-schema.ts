@@ -47,19 +47,34 @@ export const checkoutFormSchema = customerSchema.extend({
 
 export type CheckoutFormValues = z.infer<typeof checkoutFormSchema>;
 
-/** Payload gửi lên POST /api/orders. */
+/** Danh sách sản phẩm client gửi lên: chỉ có mã sản phẩm và số lượng, không bao giờ có giá. */
+export const orderItemsSchema = z
+  .array(
+    z.object({
+      productId: z.string().min(1),
+      quantity: z.number().int().min(1).max(MAX_QUANTITY_PER_ITEM),
+    }),
+  )
+  .min(1, "Giỏ hàng đang trống");
+
+export const MAX_COUPON_CODE_LENGTH = 32;
+
+/**
+ * Payload gửi lên POST /api/orders.
+ * `couponCode` là thông tin giảm giá DUY NHẤT client được gửi - số tiền giảm do server tự tính.
+ */
 export const placeOrderSchema = z.object({
   customer: customerSchema,
   shippingMethod: z.enum(SHIPPING_METHODS),
   paymentMethod: z.enum(PAYMENT_METHODS),
-  items: z
-    .array(
-      z.object({
-        productId: z.string().min(1),
-        quantity: z.number().int().min(1).max(MAX_QUANTITY_PER_ITEM),
-      }),
-    )
-    .min(1, "Giỏ hàng đang trống"),
+  items: orderItemsSchema,
+  couponCode: z
+    .string("Mã giảm giá không hợp lệ")
+    .trim()
+    .max(MAX_COUPON_CODE_LENGTH, `Mã giảm giá tối đa ${MAX_COUPON_CODE_LENGTH} ký tự`)
+    // Chuỗi rỗng sau khi trim coi như không dùng mã
+    .transform((code) => (code === "" ? undefined : code.toUpperCase()))
+    .optional(),
 });
 
 export type PlaceOrderInput = z.infer<typeof placeOrderSchema>;

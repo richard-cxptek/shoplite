@@ -21,6 +21,11 @@ import {
   SHIPPING_OPTIONS,
   type ShippingMethod,
 } from "@/features/checkout/pricing";
+import {
+  appliedCouponStore,
+  useAppliedCouponStatus,
+} from "@/features/coupons/applied-coupon-store";
+import { CouponField } from "@/features/coupons/components/coupon-field";
 import type { ApiErrorBody } from "@/lib/http";
 import type { Order } from "@/features/orders/types";
 import { cn } from "@/lib/cn";
@@ -53,10 +58,17 @@ const inputClass =
 export function CheckoutForm() {
   const router = useRouter();
   const { items, subtotal, hydrated, clear } = useCart();
+  // Client chỉ tính để hiển thị (cùng quy tắc với server); khi đặt hàng chỉ gửi mã, server tính lại
+  const couponStatus = useAppliedCouponStatus(subtotal);
   const [values, setValues] = useState<CheckoutFormValues>(INITIAL_VALUES);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [status, setStatus] = useState<"idle" | "submitting" | "redirecting">("idle");
+
+  const activeCouponCode = couponStatus.status === "active" ? couponStatus.coupon.code : undefined;
+  // Mã tạm ngưng (chưa đạt tối thiểu - FR-016) hoặc bị chặn (FR-019): không cho đặt hàng
+  const couponBlocksOrder =
+    couponStatus.status === "suspended" || couponStatus.status === "blocked";
 
   if (!hydrated) {
     return <div className="h-96 animate-pulse rounded-2xl bg-slate-200/60" aria-busy />;
@@ -116,12 +128,21 @@ export function CheckoutForm() {
           shippingMethod,
           paymentMethod,
           items: items.map((item) => ({ productId: item.productId, quantity: item.quantity })),
+          ...(activeCouponCode ? { couponCode: activeCouponCode } : {}),
         }),
       });
 
       if (!response.ok) {
         const body = (await response.json().catch(() => null)) as ApiErrorBody | null;
-        setSubmitError(body?.error.message ?? "Không thể đặt hàng, vui lòng thử lại.");
+        if (body?.error.code.startsWith("COUPON_")) {
+          // Giữ mã và thông tin khách đã nhập; lỗi hiện ngay tại ô mã giảm giá
+          appliedCouponStore.markServerError({
+            code: body.error.code,
+            message: body.error.details?.couponCode ?? body.error.message,
+          });
+        } else {
+          setSubmitError(body?.error.message ?? "Không thể đặt hàng, vui lòng thử lại.");
+        }
         setStatus("idle");
         return;
       }
@@ -129,6 +150,7 @@ export function CheckoutForm() {
       const order = (await response.json()) as Order;
       setStatus("redirecting");
       clear();
+      appliedCouponStore.clear();
       router.push(`/orders/${order.id}?placed=1`);
     } catch {
       setSubmitError("Không kết nối được máy chủ, vui lòng thử lại.");
@@ -257,13 +279,19 @@ export function CheckoutForm() {
       </div>
 
       <div className="flex flex-col gap-4">
-        <CheckoutSummary items={items} shippingMethod={values.shippingMethod} />
+        <CouponField items={items} />
+        <CheckoutSummary
+          items={items}
+          shippingMethod={values.shippingMethod}
+          discount={couponStatus.discount}
+          couponCode={activeCouponCode}
+        />
         {submitError && (
           <p role="alert" className="rounded-xl bg-rose-50 px-4 py-3 text-sm text-rose-700">
             {submitError}
           </p>
         )}
-        <Button type="submit" size="lg" disabled={status !== "idle"}>
+        <Button type="submit" size="lg" disabled={status !== "idle" || couponBlocksOrder}>
           {status === "submitting" ? "Đang đặt hàng…" : "Đặt hàng"}
         </Button>
       </div>

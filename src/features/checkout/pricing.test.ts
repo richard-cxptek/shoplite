@@ -36,7 +36,70 @@ describe("calculateOrderTotals", () => {
       ],
       "standard",
     );
-    expect(totals).toEqual({ subtotal: 350_000, shippingFee: 30_000, total: 380_000 });
+    expect(totals).toEqual({
+      subtotal: 350_000,
+      discount: 0,
+      shippingFee: 30_000,
+      total: 380_000,
+    });
+  });
+
+  describe("có số tiền giảm giá", () => {
+    const line = (subtotal: number) => [{ unitPrice: subtotal, quantity: 1 }];
+
+    it("phí giao hàng tiêu chuẩn xét theo tạm tính trước giảm giá (520.000 - 50.000)", () => {
+      expect(calculateOrderTotals(line(520_000), "standard", 50_000)).toEqual({
+        subtotal: 520_000,
+        discount: 50_000,
+        shippingFee: 0,
+        total: 470_000,
+      });
+    });
+
+    it("tạm tính đúng bằng ngưỡng miễn phí vẫn được miễn phí sau khi giảm (500.000 - 50.000)", () => {
+      expect(calculateOrderTotals(line(500_000), "standard", 50_000)).toEqual({
+        subtotal: 500_000,
+        discount: 50_000,
+        shippingFee: 0,
+        total: 450_000,
+      });
+    });
+
+    it("tạm tính thấp hơn ngưỡng 1đ vẫn tính phí giao hàng tiêu chuẩn", () => {
+      expect(calculateOrderTotals(line(499_999), "standard", 49_999)).toEqual({
+        subtotal: 499_999,
+        discount: 49_999,
+        shippingFee: SHIPPING_OPTIONS.standard.fee,
+        total: 450_000 + SHIPPING_OPTIONS.standard.fee,
+      });
+    });
+
+    it("số tiền giảm lớn hơn tạm tính bị giới hạn bằng tạm tính, tổng chỉ còn phí giao hàng", () => {
+      expect(calculateOrderTotals(line(100_000), "express", 250_000)).toEqual({
+        subtotal: 100_000,
+        discount: 100_000,
+        shippingFee: SHIPPING_OPTIONS.express.fee,
+        total: SHIPPING_OPTIONS.express.fee,
+      });
+    });
+
+    it("số tiền giảm âm được coi là 0", () => {
+      expect(calculateOrderTotals(line(100_000), "standard", -5_000)).toEqual({
+        subtotal: 100_000,
+        discount: 0,
+        shippingFee: SHIPPING_OPTIONS.standard.fee,
+        total: 100_000 + SHIPPING_OPTIONS.standard.fee,
+      });
+    });
+
+    it("giỏ hàng rỗng: mọi giá trị bằng 0", () => {
+      expect(calculateOrderTotals([], "express", 50_000)).toEqual({
+        subtotal: 0,
+        discount: 0,
+        shippingFee: 0,
+        total: 0,
+      });
+    });
   });
 });
 

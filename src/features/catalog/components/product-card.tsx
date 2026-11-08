@@ -4,6 +4,7 @@ import { RatingStars } from "@/components/ui/rating-stars";
 import { AddToCartButton } from "@/features/cart/components/add-to-cart-button";
 import { getDiscountPercent, getStockStatus } from "@/features/catalog/catalog-service";
 import type { Product } from "@/features/catalog/types";
+import { WishlistButton } from "@/features/wishlist/components/wishlist-button";
 import { ProductImage } from "./product-image";
 import { StockBadge } from "./stock-badge";
 
@@ -29,6 +30,10 @@ export function ProductCard({ product }: { product: Product }) {
           </span>
         )}
       </Link>
+      {/* Nằm ngoài link ảnh để không lồng phần tử tương tác; badge giảm giá ở góc trái nên không bị che. */}
+      <div className="absolute top-5 right-5 z-10">
+        <WishlistButton productId={product.id} productName={product.name} />
+      </div>
 
       <div className="mt-3 flex flex-1 flex-col gap-1.5 px-1">
         <p className="text-xs font-medium tracking-wide text-indigo-600 uppercase">

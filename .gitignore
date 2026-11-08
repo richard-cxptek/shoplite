@@ -24,3 +24,6 @@ test-results/
 
 # OS
 .DS_Store
+
+# local storage (đơn hàng JSON)
+storage/
