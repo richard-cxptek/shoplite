@@ -1,0 +1,254 @@
+- generic [active] [ref=f1e1]:
+  - banner [ref=f1e2]:
+    - generic [ref=f1e3]:
+      - link "ShopLite - Trang chủ" [ref=f1e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f1e10]: ShopLite
+      - navigation [ref=f1e11]:
+        - link "Trang chủ" [ref=f1e12] [cursor=pointer]:
+          - /url: /
+        - link "Sản phẩm" [ref=f1e13] [cursor=pointer]:
+          - /url: /products
+        - link "Đơn hàng" [ref=f1e14] [cursor=pointer]:
+          - /url: /orders
+      - generic [ref=f1e15]:
+        - link "Danh sách yêu thích" [ref=f1e16] [cursor=pointer]:
+          - /url: /wishlist
+        - link "Giỏ hàng" [ref=f1e19] [cursor=pointer]:
+          - /url: /cart
+  - main [ref=f1e25]:
+    - generic [ref=f1e26]:
+      - generic [ref=f1e27]:
+        - heading "Tất cả sản phẩm" [level=1] [ref=f1e28]
+        - paragraph [ref=f1e29]: Khám phá đồ công nghệ chính hãng với giá tốt nhất.
+      - navigation "Danh mục" [ref=f1e30]:
+        - link "Tất cả" [ref=f1e31] [cursor=pointer]:
+          - /url: /products
+          - generic [aria-hidden] [ref=f1e32]: 🛍️
+          - text: Tất cả
+        - link "Âm thanh" [ref=f1e33] [cursor=pointer]:
+          - /url: /products?category=am-thanh
+          - generic [aria-hidden] [ref=f1e34]: 🎧
+          - text: Âm thanh
+        - link "Bàn phím & Chuột" [ref=f1e35] [cursor=pointer]:
+          - /url: /products?category=ban-phim-chuot
+          - generic [aria-hidden] [ref=f1e36]: ⌨️
+          - text: Bàn phím & Chuột
+        - link "Phụ kiện" [ref=f1e37] [cursor=pointer]:
+          - /url: /products?category=phu-kien
+          - generic [aria-hidden] [ref=f1e38]: 🔌
+          - text: Phụ kiện
+        - link "Thiết bị đeo" [ref=f1e39] [cursor=pointer]:
+          - /url: /products?category=thiet-bi-deo
+          - generic [aria-hidden] [ref=f1e40]: ⌚
+          - text: Thiết bị đeo
+        - link "Nhà thông minh" [ref=f1e41] [cursor=pointer]:
+          - /url: /products?category=nha-thong-minh
+          - generic [aria-hidden] [ref=f1e42]: 💡
+          - text: Nhà thông minh
+      - search [ref=f1e43]:
+        - generic [ref=f1e44]:
+          - searchbox "Từ khóa tìm kiếm" [ref=f1e46]
+          - button "Tìm kiếm" [ref=f1e47]
+        - generic [ref=f1e48]:
+          - generic [ref=f1e50]:
+            - generic [ref=f1e51]: Giá từ
+            - spinbutton "Giá từ" [ref=f1e52]
+          - generic [ref=f1e53]:
+            - generic [ref=f1e54]: Đến
+            - spinbutton "Đến" [ref=f1e55]
+          - generic [ref=f1e56]:
+            - checkbox "Chỉ hiện hàng còn" [ref=f1e57]
+            - text: Chỉ hiện hàng còn
+          - generic [ref=f1e58]:
+            - generic [ref=f1e59]: Sắp xếp
+            - combobox "Sắp xếp" [ref=f1e60]:
+              - option "Nổi bật" [selected]
+              - option "Giá thấp → cao"
+              - option "Giá cao → thấp"
+              - option "Đánh giá cao"
+              - option "Mới nhất"
+          - button "Áp dụng" [ref=f1e61]
+      - paragraph [ref=f1e62]:
+        - text: Hiển thị
+        - strong [ref=f1e63]: "16"
+        - text: sản phẩm
+      - generic [ref=f1e64]:
+        - article [ref=f1e65]:
+          - link [aria-hidden] [ref=f1e66] [cursor=pointer]:
+            - /url: /products/ban-phim-co-keypro-75
+            - img [ref=f1e67]:
+              - generic [aria-hidden] [ref=f1e68]: ⌨️
+            - generic [ref=f1e69]: "-14%"
+          - generic [ref=f1e71]:
+            - button "Yêu thích Bàn phím cơ KeyPro 75%" [ref=f1e72]
+            - status [ref=f1e75]
+          - generic [ref=f1e76]:
+            - paragraph [ref=f1e77]: KeyPro
+            - heading [level=3] [ref=f1e78]:
+              - link "Bàn phím cơ KeyPro 75%" [ref=f1e79] [cursor=pointer]:
+                - /url: /products/ban-phim-co-keypro-75
+            - generic "Đánh giá 4.7 trên 5 sao" [ref=f1e80]:
+              - generic [ref=f1e92]: "4.7"
+              - generic [ref=f1e93]: (211)
+            - generic [ref=f1e94]:
+              - generic [ref=f1e95]: 1.890.000 ₫
+              - generic [ref=f1e96]: 2.190.000 ₫
+            - button "Thêm vào giỏ" [ref=f1e98]
+        - article [ref=f1e104]:
+          - link [aria-hidden] [ref=f1e105] [cursor=pointer]:
+            - /url: /products/sac-nhanh-gan-65w
+            - img [ref=f1e106]:
+              - generic [aria-hidden] [ref=f1e107]: ⚡
+          - generic [ref=f1e109]:
+            - button "Yêu thích Sạc nhanh GaN 65W" [ref=f1e110]
+            - status [ref=f1e113]
+          - generic [ref=f1e114]:
+            - paragraph [ref=f1e115]: VoltUp
+            - heading [level=3] [ref=f1e116]:
+              - link "Sạc nhanh GaN 65W" [ref=f1e117] [cursor=pointer]:
+                - /url: /products/sac-nhanh-gan-65w
+            - generic "Đánh giá 4.6 trên 5 sao" [ref=f1e118]:
+              - generic [ref=f1e130]: "4.6"
+              - generic [ref=f1e131]: (176)
+            - generic [ref=f1e132]: 590.000 ₫
+            - button "Thêm vào giỏ" [ref=f1e135]
+        - article [ref=f1e141]:
+          - link [aria-hidden] [ref=f1e142] [cursor=pointer]:
+            - /url: /products/dong-ho-thong-minh-fitwatch-s2
+            - img [ref=f1e143]:
+              - generic [aria-hidden] [ref=f1e144]: ⌚
+            - generic [ref=f1e145]: "-14%"
+          - generic [ref=f1e147]:
+            - button "Yêu thích Đồng hồ thông minh FitWatch S2" [ref=f1e148]
+            - status [ref=f1e151]
+          - generic [ref=f1e152]:
+            - paragraph [ref=f1e153]: FitLife
+            - heading [level=3] [ref=f1e154]:
+              - link "Đồng hồ thông minh FitWatch S2" [ref=f1e155] [cursor=pointer]:
+                - /url: /products/dong-ho-thong-minh-fitwatch-s2
+            - generic "Đánh giá 4.6 trên 5 sao" [ref=f1e156]:
+              - generic [ref=f1e168]: "4.6"
+              - generic [ref=f1e169]: (143)
+            - generic [ref=f1e170]:
+              - generic [ref=f1e171]: 2.990.000 ₫
+              - generic [ref=f1e172]: 3.490.000 ₫
+            - button "Thêm vào giỏ" [ref=f1e174]
+        - article [ref=f1e180]:
+          - link [aria-hidden] [ref=f1e181] [cursor=pointer]:
+            - /url: /products/tai-nghe-khong-day-soundmax-pro
+            - img [ref=f1e182]:
+              - generic [aria-hidden] [ref=f1e183]: 🎧
+            - generic [ref=f1e184]: "-19%"
+          - generic [ref=f1e186]:
+            - button "Yêu thích Tai nghe không dây SoundMax Pro" [ref=f1e187]
+            - status [ref=f1e190]
+          - generic [ref=f1e191]:
+            - paragraph [ref=f1e192]: SoundMax
+            - heading [level=3] [ref=f1e193]:
+              - link "Tai nghe không dây SoundMax Pro" [ref=f1e194] [cursor=pointer]:
+                - /url: /products/tai-nghe-khong-day-soundmax-pro
+            - generic "Đánh giá 4.6 trên 5 sao" [ref=f1e195]:
+              - generic [ref=f1e207]: "4.6"
+              - generic [ref=f1e208]: (128)
+            - generic [ref=f1e209]:
+              - generic [ref=f1e210]: 1.290.000 ₫
+              - generic [ref=f1e211]: 1.590.000 ₫
+            - button "Thêm vào giỏ" [ref=f1e213]
+        - article [ref=f1e219]:
+          - link [aria-hidden] [ref=f1e220] [cursor=pointer]:
+            - /url: /products/camera-an-ninh-homecam-2k
+            - img [ref=f1e221]:
+              - generic [aria-hidden] [ref=f1e222]: 📷
+            - generic [ref=f1e223]: "-17%"
+          - generic [ref=f1e225]:
+            - button "Yêu thích Camera an ninh HomeCam 2K" [ref=f1e226]
+            - status [ref=f1e229]
+          - generic [ref=f1e230]:
+            - paragraph [ref=f1e231]: HomeCam
+            - heading [level=3] [ref=f1e232]:
+              - link "Camera an ninh HomeCam 2K" [ref=f1e233] [cursor=pointer]:
+                - /url: /products/camera-an-ninh-homecam-2k
+            - generic "Đánh giá 4.5 trên 5 sao" [ref=f1e234]:
+              - generic [ref=f1e246]: "4.5"
+              - generic [ref=f1e247]: (91)
+            - generic [ref=f1e248]:
+              - generic [ref=f1e249]: 990.000 ₫
+              - generic [ref=f1e250]: 1.190.000 ₫
+            - button "Thêm vào giỏ" [ref=f1e252]
+        - article [ref=f1e258]:
+          - link [aria-hidden] [ref=f1e259] [cursor=pointer]:
+            - /url: /products/robot-hut-bui-cleanbot-x1
+            - img [ref=f1e260]:
+              - generic [aria-hidden] [ref=f1e261]: 🤖
+          - generic [ref=f1e263]:
+            - button "Yêu thích Robot hút bụi CleanBot X1" [ref=f1e264]
+            - status [ref=f1e267]
+          - generic [ref=f1e268]:
+            - paragraph [ref=f1e269]: CleanBot
+            - heading [level=3] [ref=f1e270]:
+              - link "Robot hút bụi CleanBot X1" [ref=f1e271] [cursor=pointer]:
+                - /url: /products/robot-hut-bui-cleanbot-x1
+            - generic "Đánh giá 4.7 trên 5 sao" [ref=f1e272]:
+              - generic [ref=f1e284]: "4.7"
+              - generic [ref=f1e285]: (64)
+            - generic [ref=f1e286]: 4.590.000 ₫
+            - button "Thêm vào giỏ" [ref=f1e289]
+        - article [ref=f1e295]:
+          - link [aria-hidden] [ref=f1e296] [cursor=pointer]:
+            - /url: /products/tai-nghe-chup-tai-studioone
+            - img [ref=f1e297]:
+              - generic [aria-hidden] [ref=f1e298]: 🎶
+          - generic [ref=f1e300]:
+            - button "Yêu thích Tai nghe chụp tai StudioOne" [ref=f1e301]
+            - status [ref=f1e304]
+          - generic [ref=f1e305]:
+            - paragraph [ref=f1e306]: StudioOne
+            - heading [level=3] [ref=f1e307]:
+              - link "Tai nghe chụp tai StudioOne" [ref=f1e308] [cursor=pointer]:
+                - /url: /products/tai-nghe-chup-tai-studioone
+            - generic "Đánh giá 4.8 trên 5 sao" [ref=f1e309]:
+              - generic [ref=f1e321]: "4.8"
+              - generic [ref=f1e322]: (54)
+            - generic [ref=f1e323]: 2.450.000 ₫
+            - button "Thêm vào giỏ" [ref=f1e326]
+        - article [ref=f1e332]:
+          - link [aria-hidden] [ref=f1e333] [cursor=pointer]:
+            - /url: /products/cap-usb-c-ben-du-2m
+            - img [ref=f1e334]:
+              - generic [aria-hidden] [ref=f1e335]: 🔗
+          - generic [ref=f1e337]:
+            - button "Yêu thích Cáp USB-C bện dù 2m" [ref=f1e338]
+            - status [ref=f1e341]
+          - generic [ref=f1e342]:
+            - paragraph [ref=f1e343]: VoltUp
+            - heading [level=3] [ref=f1e344]:
+              - link "Cáp USB-C bện dù 2m" [ref=f1e345] [cursor=pointer]:
+                - /url: /products/cap-usb-c-ben-du-2m
+            - generic "Đánh giá 4.1 trên 5 sao" [ref=f1e346]:
+              - generic [ref=f1e358]: "4.1"
+              - generic [ref=f1e359]: (412)
+            - generic [ref=f1e360]: 150.000 ₫
+            - button "Thêm vào giỏ" [ref=f1e363]
+      - navigation "Phân trang" [ref=f1e369]:
+        - link "1" [ref=f1e370] [cursor=pointer]:
+          - /url: /products
+        - link "2" [ref=f1e371] [cursor=pointer]:
+          - /url: /products?page=2
+        - link "Trang sau" [ref=f1e372] [cursor=pointer]:
+          - /url: /products?page=2
+  - contentinfo [ref=f1e375]:
+    - generic [ref=f1e376]:
+      - generic [ref=f1e377]: Miễn phí giao hàng cho đơn từ 500.000 ₫
+      - generic [ref=f1e383]: Hàng chính hãng, bảo hành 12 tháng
+      - generic [ref=f1e387]: Đổi trả miễn phí trong 7 ngày
+    - paragraph [ref=f1e391]: © 2026 ShopLite - Dự án mẫu phục vụ học tập. Không bán hàng thật.
+  - generic [ref=f1e396] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=f1e397]
+    - generic [ref=f1e401]:
+      - button "Open issues overlay" [ref=f1e402]:
+        - generic [ref=f1e403]:
+          - generic [aria-hidden] [ref=f1e404]: "0"
+          - generic [ref=f1e405]: "1"
+        - generic [ref=f1e406]: Insight
+      - button "Collapse issues badge" [ref=f1e407]

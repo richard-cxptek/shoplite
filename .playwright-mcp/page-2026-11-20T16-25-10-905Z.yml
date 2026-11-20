@@ -1,0 +1,134 @@
+- generic [ref=f3e1]:
+  - banner [ref=f3e2]:
+    - generic [ref=f3e3]:
+      - link "ShopLite - Trang chủ" [ref=f3e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f3e10]: ShopLite
+      - navigation [ref=f3e11]:
+        - link "Trang chủ" [ref=f3e12] [cursor=pointer]:
+          - /url: /
+        - link "Sản phẩm" [ref=f3e13] [cursor=pointer]:
+          - /url: /products
+        - link "Đơn hàng" [ref=f3e14] [cursor=pointer]:
+          - /url: /orders
+      - generic [ref=f3e15]:
+        - link "Danh sách yêu thích" [ref=f3e16] [cursor=pointer]:
+          - /url: /wishlist
+        - link "Giỏ hàng" [ref=f3e19] [cursor=pointer]:
+          - /url: /cart
+  - main [ref=f3e25]:
+    - generic [ref=f3e26]:
+      - navigation "Breadcrumb" [ref=f3e27]:
+        - link "Trang chủ" [ref=f3e28] [cursor=pointer]:
+          - /url: /
+        - link "Sản phẩm" [ref=f3e31] [cursor=pointer]:
+          - /url: /products
+        - link "Bàn phím & Chuột" [ref=f3e34] [cursor=pointer]:
+          - /url: /products?category=ban-phim-chuot
+      - generic [ref=f3e35]:
+        - img "Chuột không dây SwiftClick" [ref=f3e37]:
+          - generic [aria-hidden] [ref=f3e38]: 🖱️
+        - generic [ref=f3e39]:
+          - paragraph [ref=f3e40]: SwiftClick
+          - heading "Chuột không dây SwiftClick" [level=1] [ref=f3e41]
+          - generic [ref=f3e42]:
+            - generic "Đánh giá 4.4 trên 5 sao" [ref=f3e43]:
+              - generic [ref=f3e55]: "4.4"
+              - generic [ref=f3e56]: (302)
+            - generic [ref=f3e57]: Còn hàng
+          - generic [ref=f3e58]: 450.000 ₫
+          - paragraph [ref=f3e60]: Siêu nhẹ 60g, cảm biến 26.000 DPI, pin sạc 70 giờ.
+          - generic [ref=f3e61]:
+            - generic [ref=f3e63]:
+              - button "Giảm số lượng" [ref=f3e64]
+              - spinbutton "Số lượng" [ref=f3e66]: "2"
+              - button "Tăng số lượng" [active] [ref=f3e67]
+            - generic [ref=f3e69]:
+              - button "Thêm vào giỏ" [ref=f3e70]
+              - button "Mua ngay" [ref=f3e76]
+          - generic [ref=f3e79]:
+            - button "Yêu thích Chuột không dây SwiftClick" [ref=f3e80]:
+              - generic [ref=f3e83]: Yêu thích
+            - status [ref=f3e84]
+          - list [ref=f3e85]:
+            - listitem [ref=f3e86]: Giao hàng toàn quốc, nhận hàng 1–5 ngày
+            - listitem [ref=f3e92]: Bảo hành chính hãng 12 tháng
+            - listitem [ref=f3e96]: Đổi trả miễn phí trong 7 ngày
+      - generic [ref=f3e100]:
+        - generic [ref=f3e101]:
+          - heading "Mô tả sản phẩm" [level=2] [ref=f3e102]
+          - paragraph [ref=f3e103]: SwiftClick có thiết kế đối xứng phù hợp mọi kiểu cầm, cảm biến chính xác cho cả làm việc và chơi game, sạc nhanh qua cổng USB-C.
+          - generic [ref=f3e104]:
+            - generic [ref=f3e105]: "#chuột"
+            - generic [ref=f3e106]: "#không dây"
+            - generic [ref=f3e107]: "#gaming"
+        - generic [ref=f3e108]:
+          - heading "Thông số kỹ thuật" [level=2] [ref=f3e109]
+          - generic [ref=f3e110]:
+            - generic [ref=f3e111]:
+              - term [ref=f3e112]: Trọng lượng
+              - definition [ref=f3e113]: 60 g
+            - generic [ref=f3e114]:
+              - term [ref=f3e115]: Cảm biến
+              - definition [ref=f3e116]: 26.000 DPI
+            - generic [ref=f3e117]:
+              - term [ref=f3e118]: Thời lượng pin
+              - definition [ref=f3e119]: 70 giờ
+      - generic [ref=f3e120]:
+        - heading "Sản phẩm liên quan" [level=2] [ref=f3e121]
+        - generic [ref=f3e122]:
+          - article [ref=f3e123]:
+            - link [aria-hidden] [ref=f3e124] [cursor=pointer]:
+              - /url: /products/ban-phim-co-keypro-75
+              - img [ref=f3e125]:
+                - generic [aria-hidden] [ref=f3e126]: ⌨️
+              - generic [ref=f3e127]: "-14%"
+            - generic [ref=f3e129]:
+              - button "Yêu thích Bàn phím cơ KeyPro 75%" [ref=f3e130]
+              - status [ref=f3e133]
+            - generic [ref=f3e134]:
+              - paragraph [ref=f3e135]: KeyPro
+              - heading [level=3] [ref=f3e136]:
+                - link "Bàn phím cơ KeyPro 75%" [ref=f3e137] [cursor=pointer]:
+                  - /url: /products/ban-phim-co-keypro-75
+              - generic "Đánh giá 4.7 trên 5 sao" [ref=f3e138]:
+                - generic [ref=f3e150]: "4.7"
+                - generic [ref=f3e151]: (211)
+              - generic [ref=f3e152]:
+                - generic [ref=f3e153]: 1.890.000 ₫
+                - generic [ref=f3e154]: 2.190.000 ₫
+              - button "Thêm vào giỏ" [ref=f3e156]
+          - article [ref=f3e162]:
+            - link [aria-hidden] [ref=f3e163] [cursor=pointer]:
+              - /url: /products/ban-di-chuot-deskmat-xl
+              - img [ref=f3e164]:
+                - generic [aria-hidden] [ref=f3e165]: 🟪
+            - generic [ref=f3e167]:
+              - button "Yêu thích Bàn di chuột cỡ lớn DeskMat XL" [ref=f3e168]
+              - status [ref=f3e171]
+            - generic [ref=f3e172]:
+              - paragraph [ref=f3e173]: DeskMat
+              - heading [level=3] [ref=f3e174]:
+                - link "Bàn di chuột cỡ lớn DeskMat XL" [ref=f3e175] [cursor=pointer]:
+                  - /url: /products/ban-di-chuot-deskmat-xl
+              - generic "Đánh giá 4.2 trên 5 sao" [ref=f3e176]:
+                - generic [ref=f3e188]: "4.2"
+                - generic [ref=f3e189]: (98)
+              - generic [ref=f3e190]: 250.000 ₫
+              - button "Thêm vào giỏ" [ref=f3e193]
+  - contentinfo [ref=f3e199]:
+    - generic [ref=f3e200]:
+      - generic [ref=f3e201]: Miễn phí giao hàng cho đơn từ 500.000 ₫
+      - generic [ref=f3e207]: Hàng chính hãng, bảo hành 12 tháng
+      - generic [ref=f3e211]: Đổi trả miễn phí trong 7 ngày
+    - paragraph [ref=f3e215]: © 2026 ShopLite - Dự án mẫu phục vụ học tập. Không bán hàng thật.
+  - generic [ref=f3e220] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=f3e221]
+    - generic [ref=f3e225]:
+      - button "Open issues overlay" [ref=f3e226]:
+        - generic [ref=f3e227]:
+          - generic [aria-hidden] [ref=f3e228]: "0"
+          - generic [ref=f3e229]: "1"
+        - generic [ref=f3e230]: Insight
+      - button "Collapse issues badge" [ref=f3e231]
+  - alert [ref=f3e234]

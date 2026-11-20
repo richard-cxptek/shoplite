@@ -1,0 +1,120 @@
+- generic [ref=f7e1]:
+  - banner [ref=f7e2]:
+    - generic [ref=f7e3]:
+      - link "ShopLite - Trang chủ" [ref=f7e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f7e10]: ShopLite
+      - navigation [ref=f7e11]:
+        - link "Trang chủ" [ref=f7e12] [cursor=pointer]:
+          - /url: /
+        - link "Sản phẩm" [ref=f7e13] [cursor=pointer]:
+          - /url: /products
+        - link "Đơn hàng" [ref=f7e14] [cursor=pointer]:
+          - /url: /orders
+      - generic [ref=f7e15]:
+        - link "Danh sách yêu thích" [ref=f7e16] [cursor=pointer]:
+          - /url: /wishlist
+        - link "Giỏ hàng (1 sản phẩm)" [ref=f7e19] [cursor=pointer]:
+          - /url: /cart
+          - generic [ref=f7e25]: "1"
+  - main [ref=f7e26]:
+    - generic [ref=f7e27]:
+      - heading "Thanh toán" [level=1] [ref=f7e28]
+      - generic [ref=f7e29]:
+        - generic [ref=f7e30]:
+          - generic [ref=f7e31]:
+            - heading "Thông tin nhận hàng" [level=2] [ref=f7e32]
+            - generic [ref=f7e33]:
+              - generic [ref=f7e34]:
+                - generic [ref=f7e35]: Họ và tên *
+                - textbox "Họ và tên *" [invalid] [ref=f7e36]:
+                  - /placeholder: Nguyễn Văn A
+                - paragraph [ref=f7e155]: Họ tên phải có ít nhất 2 ký tự
+              - generic [ref=f7e37]:
+                - generic [ref=f7e38]: Số điện thoại *
+                - textbox "Số điện thoại *" [invalid] [ref=f7e39]:
+                  - /placeholder: "0912345678"
+                - paragraph [ref=f7e156]: "Số điện thoại không hợp lệ (ví dụ: 0912345678)"
+              - generic [ref=f7e40]:
+                - generic [ref=f7e41]: Email
+                - textbox "Email" [ref=f7e42]:
+                  - /placeholder: ban@example.com (không bắt buộc)
+              - generic [ref=f7e43]:
+                - generic [ref=f7e44]: Địa chỉ giao hàng *
+                - textbox "Địa chỉ giao hàng *" [invalid] [ref=f7e45]:
+                  - /placeholder: Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành
+                - paragraph [ref=f7e157]: Địa chỉ phải có ít nhất 10 ký tự
+              - generic [ref=f7e46]:
+                - generic [ref=f7e47]: Ghi chú
+                - textbox "Ghi chú" [ref=f7e48]:
+                  - /placeholder: "Ví dụ: giao giờ hành chính"
+          - generic [ref=f7e49]:
+            - heading "Phương thức giao hàng" [level=2] [ref=f7e50]
+            - generic [ref=f7e51]:
+              - generic [ref=f7e52] [cursor=pointer]:
+                - radio "Giao hàng tiêu chuẩn 3–5 ngày làm việc · 30.000 ₫" [checked] [ref=f7e53]
+                - generic [ref=f7e60]:
+                  - generic [ref=f7e61]: Giao hàng tiêu chuẩn
+                  - generic [ref=f7e62]: 3–5 ngày làm việc · 30.000 ₫
+              - generic [ref=f7e63] [cursor=pointer]:
+                - radio "Giao hàng nhanh 1–2 ngày làm việc · 60.000 ₫" [ref=f7e64]
+                - generic [ref=f7e68]:
+                  - generic [ref=f7e69]: Giao hàng nhanh
+                  - generic [ref=f7e70]: 1–2 ngày làm việc · 60.000 ₫
+          - generic [ref=f7e71]:
+            - heading "Phương thức thanh toán" [level=2] [ref=f7e72]
+            - generic [ref=f7e73]:
+              - generic [ref=f7e74] [cursor=pointer]:
+                - radio "Thanh toán khi nhận hàng (COD) Trả tiền mặt cho shipper" [checked] [ref=f7e75]
+                - generic [ref=f7e80]:
+                  - generic [ref=f7e81]: Thanh toán khi nhận hàng (COD)
+                  - generic [ref=f7e82]: Trả tiền mặt cho shipper
+              - generic [ref=f7e83] [cursor=pointer]:
+                - radio "Chuyển khoản ngân hàng Thông tin chuyển khoản hiển thị sau khi đặt hàng" [ref=f7e84]
+                - generic [ref=f7e88]:
+                  - generic [ref=f7e89]: Chuyển khoản ngân hàng
+                  - generic [ref=f7e90]: Thông tin chuyển khoản hiển thị sau khi đặt hàng
+        - generic [ref=f7e91]:
+          - generic [ref=f7e93]:
+            - generic [ref=f7e94]: Mã giảm giá
+            - generic [ref=f7e95]:
+              - textbox "Mã giảm giá" [ref=f7e96]:
+                - /placeholder: Nhập mã, ví dụ SHOPLITE10
+              - button "Áp dụng" [ref=f7e97]
+          - complementary [ref=f7e98]:
+            - heading "Đơn hàng của bạn" [level=2] [ref=f7e99]
+            - list [ref=f7e100]:
+              - listitem [ref=f7e101]:
+                - generic [ref=f7e102]:
+                  - img "Cáp USB-C bện dù 2m" [ref=f7e103]:
+                    - generic [aria-hidden] [ref=f7e104]: 🔗
+                  - generic [ref=f7e105]: "1"
+                - generic [ref=f7e106]: Cáp USB-C bện dù 2m
+                - generic [ref=f7e107]: 150.000 ₫
+            - generic [ref=f7e108]:
+              - generic [ref=f7e109]:
+                - term [ref=f7e110]: Tạm tính
+                - definition [ref=f7e111]: 150.000 ₫
+              - generic [ref=f7e112]:
+                - term [ref=f7e113]: Phí giao hàng
+                - definition [ref=f7e114]: 30.000 ₫
+              - generic [ref=f7e115]:
+                - term [ref=f7e116]: Tổng thanh toán
+                - definition [ref=f7e117]: 180.000 ₫
+          - button "Đặt hàng" [active] [ref=f7e118]
+  - contentinfo [ref=f7e119]:
+    - generic [ref=f7e120]:
+      - generic [ref=f7e121]: Miễn phí giao hàng cho đơn từ 500.000 ₫
+      - generic [ref=f7e127]: Hàng chính hãng, bảo hành 12 tháng
+      - generic [ref=f7e131]: Đổi trả miễn phí trong 7 ngày
+    - paragraph [ref=f7e135]: © 2026 ShopLite - Dự án mẫu phục vụ học tập. Không bán hàng thật.
+  - generic [ref=f7e140] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=f7e141]
+    - generic [ref=f7e145]:
+      - button "Open issues overlay" [ref=f7e146]:
+        - generic [ref=f7e147]:
+          - generic [aria-hidden] [ref=f7e148]: "0"
+          - generic [ref=f7e149]: "1"
+        - generic [ref=f7e150]: Insight
+      - button "Collapse issues badge" [ref=f7e151]
+  - alert [ref=f7e154]

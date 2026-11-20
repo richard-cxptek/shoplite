@@ -1,0 +1,43 @@
+- generic [active] [ref=f4e1]:
+  - banner [ref=f4e2]:
+    - generic [ref=f4e3]:
+      - link "ShopLite - Trang chủ" [ref=f4e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f4e10]: ShopLite
+      - navigation [ref=f4e11]:
+        - link "Trang chủ" [ref=f4e12] [cursor=pointer]:
+          - /url: /
+        - link "Sản phẩm" [ref=f4e13] [cursor=pointer]:
+          - /url: /products
+        - link "Đơn hàng" [ref=f4e14] [cursor=pointer]:
+          - /url: /orders
+      - generic [ref=f4e15]:
+        - link "Danh sách yêu thích" [ref=f4e16] [cursor=pointer]:
+          - /url: /wishlist
+        - link "Giỏ hàng" [ref=f4e19] [cursor=pointer]:
+          - /url: /cart
+  - main [ref=f4e25]:
+    - generic [ref=f4e26]:
+      - heading "Giỏ hàng" [level=1] [ref=f4e27]
+      - generic [ref=f4e64]:
+        - generic [aria-hidden] [ref=f4e65]: 🛒
+        - heading "Giỏ hàng của bạn đang trống" [level=2] [ref=f4e66]
+        - paragraph [ref=f4e67]: Hãy khám phá các sản phẩm công nghệ đang được ưa chuộng nhất.
+        - link "Mua sắm ngay" [ref=f4e69] [cursor=pointer]:
+          - /url: /products
+  - contentinfo [ref=f4e29]:
+    - generic [ref=f4e30]:
+      - generic [ref=f4e31]: Miễn phí giao hàng cho đơn từ 500.000 ₫
+      - generic [ref=f4e37]: Hàng chính hãng, bảo hành 12 tháng
+      - generic [ref=f4e41]: Đổi trả miễn phí trong 7 ngày
+    - paragraph [ref=f4e45]: © 2026 ShopLite - Dự án mẫu phục vụ học tập. Không bán hàng thật.
+  - generic [ref=f4e50] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=f4e51]
+    - generic [ref=f4e55]:
+      - button "Open issues overlay" [ref=f4e56]:
+        - generic [ref=f4e57]:
+          - generic [aria-hidden] [ref=f4e58]: "0"
+          - generic [ref=f4e59]: "1"
+        - generic [ref=f4e60]: Insight
+      - button "Collapse issues badge" [ref=f4e61]
+  - alert [ref=f4e70]

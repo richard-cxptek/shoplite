@@ -1,0 +1,149 @@
+- generic [active] [ref=f5e1]:
+  - banner [ref=f5e2]:
+    - generic [ref=f5e3]:
+      - link "ShopLite - Trang chủ" [ref=f5e4] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f5e10]: ShopLite
+      - navigation [ref=f5e11]:
+        - link "Trang chủ" [ref=f5e12] [cursor=pointer]:
+          - /url: /
+        - link "Sản phẩm" [ref=f5e13] [cursor=pointer]:
+          - /url: /products
+        - link "Đơn hàng" [ref=f5e14] [cursor=pointer]:
+          - /url: /orders
+      - generic [ref=f5e15]:
+        - link "Danh sách yêu thích" [ref=f5e16] [cursor=pointer]:
+          - /url: /wishlist
+        - link "Giỏ hàng" [ref=f5e19] [cursor=pointer]:
+          - /url: /cart
+  - main [ref=f5e25]:
+    - generic [ref=f5e26]:
+      - navigation "Breadcrumb" [ref=f5e27]:
+        - link "Trang chủ" [ref=f5e28] [cursor=pointer]:
+          - /url: /
+        - link "Sản phẩm" [ref=f5e31] [cursor=pointer]:
+          - /url: /products
+        - link "Phụ kiện" [ref=f5e34] [cursor=pointer]:
+          - /url: /products?category=phu-kien
+      - generic [ref=f5e35]:
+        - img "Cáp USB-C bện dù 2m" [ref=f5e37]:
+          - generic [aria-hidden] [ref=f5e38]: 🔗
+        - generic [ref=f5e39]:
+          - paragraph [ref=f5e40]: VoltUp
+          - heading "Cáp USB-C bện dù 2m" [level=1] [ref=f5e41]
+          - generic [ref=f5e42]:
+            - generic "Đánh giá 4.1 trên 5 sao" [ref=f5e43]:
+              - generic [ref=f5e55]: "4.1"
+              - generic [ref=f5e56]: (412)
+            - generic [ref=f5e57]: Còn hàng
+          - generic [ref=f5e58]: 150.000 ₫
+          - paragraph [ref=f5e60]: Bện dù siêu bền, hỗ trợ sạc 100W và truyền dữ liệu 480Mbps.
+          - generic [ref=f5e61]:
+            - generic [ref=f5e63]:
+              - button "Giảm số lượng" [disabled] [ref=f5e64]
+              - spinbutton "Số lượng" [ref=f5e66]: "1"
+              - button "Tăng số lượng" [ref=f5e67]
+            - generic [ref=f5e69]:
+              - button "Thêm vào giỏ" [ref=f5e70]
+              - button "Mua ngay" [ref=f5e76]
+          - generic [ref=f5e79]:
+            - button "Yêu thích Cáp USB-C bện dù 2m" [ref=f5e80]:
+              - generic [ref=f5e83]: Yêu thích
+            - status [ref=f5e84]
+          - list [ref=f5e85]:
+            - listitem [ref=f5e86]: Giao hàng toàn quốc, nhận hàng 1–5 ngày
+            - listitem [ref=f5e92]: Bảo hành chính hãng 12 tháng
+            - listitem [ref=f5e96]: Đổi trả miễn phí trong 7 ngày
+      - generic [ref=f5e100]:
+        - generic [ref=f5e101]:
+          - heading "Mô tả sản phẩm" [level=2] [ref=f5e102]
+          - paragraph [ref=f5e103]: Lớp bện dù chịu được hơn 20.000 lần gập, đầu cáp bằng nhôm chắc chắn. Dài 2m thoải mái dùng trên giường hoặc sofa.
+          - generic [ref=f5e104]:
+            - generic [ref=f5e105]: "#cáp"
+            - generic [ref=f5e106]: "#usb-c"
+        - generic [ref=f5e107]:
+          - heading "Thông số kỹ thuật" [level=2] [ref=f5e108]
+          - generic [ref=f5e109]:
+            - generic [ref=f5e110]:
+              - term [ref=f5e111]: Chiều dài
+              - definition [ref=f5e112]: 2 m
+            - generic [ref=f5e113]:
+              - term [ref=f5e114]: Công suất
+              - definition [ref=f5e115]: 100 W
+      - generic [ref=f5e116]:
+        - heading "Sản phẩm liên quan" [level=2] [ref=f5e117]
+        - generic [ref=f5e118]:
+          - article [ref=f5e119]:
+            - link [aria-hidden] [ref=f5e120] [cursor=pointer]:
+              - /url: /products/sac-nhanh-gan-65w
+              - img [ref=f5e121]:
+                - generic [aria-hidden] [ref=f5e122]: ⚡
+            - generic [ref=f5e124]:
+              - button "Yêu thích Sạc nhanh GaN 65W" [ref=f5e125]
+              - status [ref=f5e128]
+            - generic [ref=f5e129]:
+              - paragraph [ref=f5e130]: VoltUp
+              - heading [level=3] [ref=f5e131]:
+                - link "Sạc nhanh GaN 65W" [ref=f5e132] [cursor=pointer]:
+                  - /url: /products/sac-nhanh-gan-65w
+              - generic "Đánh giá 4.6 trên 5 sao" [ref=f5e133]:
+                - generic [ref=f5e145]: "4.6"
+                - generic [ref=f5e146]: (176)
+              - generic [ref=f5e147]: 590.000 ₫
+              - button "Thêm vào giỏ" [ref=f5e150]
+          - article [ref=f5e156]:
+            - link [aria-hidden] [ref=f5e157] [cursor=pointer]:
+              - /url: /products/pin-du-phong-powergo-20000
+              - img [ref=f5e158]:
+                - generic [aria-hidden] [ref=f5e159]: 🔋
+              - generic [ref=f5e160]: "-16%"
+            - generic [ref=f5e162]:
+              - button "Yêu thích Pin dự phòng PowerGo 20.000mAh" [ref=f5e163]
+              - status [ref=f5e166]
+            - generic [ref=f5e167]:
+              - paragraph [ref=f5e168]: PowerGo
+              - heading [level=3] [ref=f5e169]:
+                - link "Pin dự phòng PowerGo 20.000mAh" [ref=f5e170] [cursor=pointer]:
+                  - /url: /products/pin-du-phong-powergo-20000
+              - generic "Đánh giá 4.5 trên 5 sao" [ref=f5e171]:
+                - generic [ref=f5e183]: "4.5"
+                - generic [ref=f5e184]: (240)
+              - generic [ref=f5e185]:
+                - generic [ref=f5e186]: 750.000 ₫
+                - generic [ref=f5e187]: 890.000 ₫
+              - button "Thêm vào giỏ" [ref=f5e189]
+          - article [ref=f5e195]:
+            - link [aria-hidden] [ref=f5e196] [cursor=pointer]:
+              - /url: /products/gia-do-laptop-nhom
+              - img [ref=f5e197]:
+                - generic [aria-hidden] [ref=f5e198]: 💻
+            - generic [ref=f5e200]:
+              - button "Yêu thích Giá đỡ laptop nhôm" [ref=f5e201]
+              - status [ref=f5e204]
+            - generic [ref=f5e205]:
+              - paragraph [ref=f5e206]: DeskMat
+              - heading [level=3] [ref=f5e207]:
+                - link "Giá đỡ laptop nhôm" [ref=f5e208] [cursor=pointer]:
+                  - /url: /products/gia-do-laptop-nhom
+              - generic "Đánh giá 4.3 trên 5 sao" [ref=f5e209]:
+                - generic [ref=f5e221]: "4.3"
+                - generic [ref=f5e222]: (67)
+              - generic [ref=f5e223]: 390.000 ₫
+              - generic [ref=f5e225]:
+                - generic [ref=f5e226]: Chỉ còn 3 sản phẩm
+                - button "Thêm vào giỏ" [ref=f5e227]
+  - contentinfo [ref=f5e233]:
+    - generic [ref=f5e234]:
+      - generic [ref=f5e235]: Miễn phí giao hàng cho đơn từ 500.000 ₫
+      - generic [ref=f5e241]: Hàng chính hãng, bảo hành 12 tháng
+      - generic [ref=f5e245]: Đổi trả miễn phí trong 7 ngày
+    - paragraph [ref=f5e249]: © 2026 ShopLite - Dự án mẫu phục vụ học tập. Không bán hàng thật.
+  - generic [ref=f5e254] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=f5e255]
+    - generic [ref=f5e259]:
+      - button "Open issues overlay" [ref=f5e260]:
+        - generic [ref=f5e261]:
+          - generic [aria-hidden] [ref=f5e262]: "0"
+          - generic [ref=f5e263]: "1"
+        - generic [ref=f5e264]: Insight
+      - button "Collapse issues badge" [ref=f5e265]
